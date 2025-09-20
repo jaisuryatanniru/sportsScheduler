@@ -1,6 +1,6 @@
 const express = require('express');
 const { playerRegisterController,  playerResetPasswordController,PlayerLoginController } = require('../controllers/playerAuth');
-const {createSession}=require('../controllers/sessionsController');
+const { createSession, getSessions, joinSession, cancelSession, getMySessions } = require('../controllers/sessionsController');
 
 
 const playerMiddleware=require("../middlewares/playerMiddleware");
@@ -12,6 +12,13 @@ router.post('/playerResetPassword',  playerResetPasswordController);
 router.post('/playerRegister',playerRegisterController);  
 router.post('/playerLogin',  PlayerLoginController); 
 router.post('/createSession',createSession);
+
+
+router.get('/getSessions', getSessions);
+router.post('/joinSession/:sessionId', joinSession);
+router.post('/cancelSession/:sessionId', cancelSession);
+router.get('/mySessions', playerMiddleware, getMySessions);
+
 
 
 module.exports = router;

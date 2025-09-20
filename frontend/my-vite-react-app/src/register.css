@@ -1,64 +1,144 @@
-.register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f9fa;
-    gap: 20px;
-  }
-  
-  .register-box {
-    background: white;
-    padding: 30px;
-    width: 450px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-  }
-  
-  .register-box h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #343a40;
-  }
-  
-  .register-box input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .register-box button {
-    width: 100%;
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
-    margin: 15px 0;
-    border-radius: 4px;
-  }
-  
-  .toggle-button {
-    background: none;
-    color: #28a745;
-    font-size: 14px;
-  }
-  
-  .register-info {
-    max-width: 300px;
-    padding: 20px;
-    text-align: center;
-    background: #e9ecef;
-    border-radius: 8px;
-  }
-  
-  .register-info h3 {
-    margin-bottom: 15px;
-    color: #28a745;
-  }
-  
-  .register-info p {
-    font-size: 14px;
-    color: #6c757d;
-  }
-  
+.register-page {
+  display: flex;
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.register-card {
+  display: flex;
+  width: 70%;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 20px;
+  overflow:hidden; 
+}
+
+.register-box {
+  flex: 1;
+  padding: 30px;
+  border-right: 1px solid #e9ecef; 
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.register-box h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #343a40;
+  margin-top: -20px;
+}
+
+.register-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.register-box button {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  margin: 15px 0;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.register-box button:hover {
+  background-color: #218838;
+}
+
+.toggle-button {
+  background: none;
+  color: #28a745;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  margin-top: 5px; 
+  padding: 10px; 
+  text-decoration: underline; 
+  margin-bottom:-20px;
+}
+
+.toggle-button:hover {
+  color: #218838; 
+  text-decoration: none; 
+}
+
+.register-info {
+  flex: 1;
+  padding: 30px;
+  text-align: center;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-card {
+  background: #e9ecef; 
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+  max-width: 80%;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #e9ecef; 
+  transform: translateY(-50%);
+}
+
+.register-info h3 {
+  margin-bottom: 15px;
+  color: #28a745;
+}
+
+.register-info p {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.register-image {
+  width: 30%;
+  height: 100vh;
+  overflow: hidden; 
+}
+
+.register-image img {
+  width: 100%;
+  height: 97%;
+  object-fit: cover;
+}
+
+p{
+  margin-top:-20px ;
+}
+
+
+.switch{
+  background: none;
+  color: #28a745;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  margin-top:-40px; 
+  padding: 10px; 
+  text-decoration: underline; 
+}

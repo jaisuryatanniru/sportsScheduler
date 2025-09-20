@@ -1,24 +1,16 @@
-const Sport = require('../models/sportsModel');
+const Sport = require("../models/sport");
 
-const createSport = async (req, res) => {
+exports.createSport = async (req, res) => {
   const { name } = req.body;
-
-  if (!name) {
-    return res.status(400).json({ error: 'Sport name is required.' });
-  }
-
+  if (!name) return res.status(400).json({ error: "Sport name is required." });
   try {
-    const existingSport = await Sport.findOne({ name });
-    if (existingSport) {
-      return res.status(400).json({ error: 'Sport already exists.' });
+    if (await Sport.findOne({ name })) {
+      return res.status(400).json({ error: "Sport already exists." });
     }
-
-    const newSport = await Sport.create({ name });
-    res.status(201).json({ message: 'Sport created successfully.', sport: newSport });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred while creating the sport.' });
+    const sport = await Sport.create({ name });
+    res.status(201).json({ message: "Sport created successfully.", sport });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error while creating sport." });
   }
 };
-
-module.exports={createSport}

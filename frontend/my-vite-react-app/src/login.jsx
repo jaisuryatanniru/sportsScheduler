@@ -1,41 +1,37 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // For making API calls
+import axios from 'axios'; 
 import './login.css';
-
+import cricket from './assets/cricket.jpg'; 
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
 
-  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Toggle between Admin and Player login forms
+  
   const toggleFormType = () => {
     setIsAdmin(!isAdmin);
   };
 
-  // Handle form submission with backend call
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userType = isAdmin ? 'admin' : 'player'; // Determine user type
+    const userType = isAdmin ? 'admin' : 'player'; 
     try {
-      // Backend API call for login
       const apiUrl = 'http://localhost:5000/api/v1/authentication';
       const url = `${apiUrl}/${userType}/${userType}Login`;
 
       const response = await axios.post(url, formData);
 
-      // Simulate success: Customize based on your backend response
       const { message, user } = response.data;
       alert(message);
 
-      // Redirect based on user type
       if (userType === 'admin') {
         navigate('/home');
       } else {
@@ -47,6 +43,7 @@ const Login = () => {
   };
 
   return (
+    <>
     <div className="login-container">
       <div className={`login-box ${isAdmin ? 'admin-mode' : ''}`}>
         <h2>{isAdmin ? 'Admin Login' : 'Player Login'}</h2>
@@ -84,7 +81,13 @@ const Login = () => {
           sign up to get started.
         </p>
       </div>
-    </div>
+       <div className="register-image">
+            <img src={cricket} alt="cricket" />
+          </div>
+        </div>
+    
+    
+    </>
   );
 };
 
